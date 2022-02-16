@@ -7,6 +7,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href={{ asset("css/style.css") }} rel="stylesheet">
 </head>
 <body>
     @yield('content')
