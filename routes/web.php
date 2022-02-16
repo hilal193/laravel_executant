@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FrontController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\AvatarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,5 +60,22 @@ route::get("/admin/{users}/editindex",[UserController::class,"edit"])->name("use
 route::put("/admin/{users}/updateindex",[UserController::class,"update"])->name("users.update");
 
 
+
+// avatar
+
+// create
+route::get("/admin/avatars/create",[AvatarController::class,"create"])->name("avatars.create");
+// store
+route::post("/admin/avatars/store",[AvatarController::class,"store"])->name("avatars.store");
+// affiche
+route::get("/admin/avatars/index",[AvatarController::class,"index"])->name("avatars.index");
+// del
+Route::delete('/avatars/{id}/deleteavatars', [AvatarController::class,"destroy"])->name("avatars.destroy");
+// show
+route::get("/admin/{avatars}/showindex",[AvatarController::class,"show"])->name("avatars.show");
+// edit
+route::get("/admin/{avatars}/editindex",[AvatarController::class,"edit"])->name("avatars.edit");
+// update
+route::put("/admin/{avatars}/updateindex",[AvatarController::class,"update"])->name("avatars.update");
 
 

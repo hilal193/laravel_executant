@@ -27,8 +27,8 @@
 
         <li>
             {{-- <a href="{{route('portfolio.affichage')}}"> --}}
-            {{-- <a href="{{route('skills.index')}}"> --}}
-            <a href="#">
+            <a href="{{route('avatars.index')}}">
+            {{-- <a href="#"> --}}
 
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> Avatars
             </a>
@@ -152,7 +152,7 @@
                 <div>
                     {{ $paginationUser->links('pagination::bootstrap-4') }}
                 </div>
-            </div>
+</div>
 
 
   </div>

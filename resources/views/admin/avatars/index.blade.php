@@ -2,8 +2,7 @@
 
 @section('content')
 
-
-
+{{-- sidebar --}}
 <div class="sidebar-container mt-10 pt-10">
     <div class="sidebar-logo">
         Back Office
@@ -20,8 +19,8 @@
         </li>
 
         <li>
-            <a href="{{route('users.index')}}">
-            {{-- <a href="#"> --}}
+            {{-- <a href="{{route('works.index')}}"> --}}
+            <a href="#">
 
                 <i class="fa fa-home retire" aria-hidden="true"></i> USER
             </a>
@@ -29,8 +28,8 @@
 
         <li>
             {{-- <a href="{{route('portfolio.affichage')}}"> --}}
-            <a href="{{route('avatars.index')}}">
-            {{-- <a href="#"> --}}
+            {{-- <a href="{{route('avatars.index')}}"> --}}
+            <a href="#">
 
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> Avatars
             </a>
@@ -81,19 +80,22 @@
 
 
 <div class="content-container">
-    {{-- boutton deco --}}
- <form action="{{ route("logout") }}" method="POST">
-    @csrf
-    <button class="btn btn-primary">Deconnexion</button>
 
-    </form>
+    <div class="d-flex align-items-center">
+        <h1>AVATARS</h1>
+    </div>
 
-    <h1>My dashboard</h1>
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ asset('') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">nom avatar</p>
+                </div>
+              </div>
+        </div>
+    </div>
 
-    <hr>
-    <h2 class="sub-header">Dashboard</h2>
-
-              <h3>COMING SOON...</h3>
 </div>
 
 
