@@ -39,9 +39,12 @@
 
                 <x-input id="avatar" class="block mt-1 w-full" type="file" name="avatar" :value="old('avatar')" required autofocus />
                 <select name="avatar" id="">
-                    <option value="">
-
+                    {{-- @foreach ($avatarTout as $item)
+                    <option value="{{ $item->id }}">
+                        {{ $item->nom }}
                     </option>
+
+                    @endforeach --}}
                 </select>
             </div>
 

@@ -113,26 +113,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @forelse ($paginationWorks as $item)
+                        @forelse ($paginationUser as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->nom }}</td>
-                            <td><img src="{{ $item->image }}" style="height:50px; width:50px;" alt=""></td>
+                            <td><img src="{{ $item->avatar }}" style="height:50px; width:50px; border-radius: 50%;" alt=""></td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->prenom }}</td>
+                            <td>{{ $item->age }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>{{ $item->role->name }}</td>
 
-                             <td class="df">
+                             {{-- <td>
                             <a href="{{route('skills.show', $item->id)}}" class="btn btn vert">Show</a>
                             <a href="{{route('skills.edit', $item->id)}}" class="btn btn orange edit">Edit</a>
                             <form action="{{ route("skills.destroy", $item->id) }}" method="POST">
                                 @csrf
                             @method('DELETE')
                                 <button type="submit" class="btn rouge">Delete</button>
-
                             </td>
-                            </form>
+                            </form> --}}
 
-                        </tr> --}}
+                        </tr>
 
-                        {{-- @empty --}}
+                        @empty
                         <tr>
                             <td>Vide</td>
                             <td>Vide</td>
@@ -143,11 +146,11 @@
                             <td>Vide</td>
                             <td>Vide</td>
                         </tr>
-                        {{-- @endforelse --}}
+                        @endforelse
                     </tbody>
                 </table>
                 <div>
-                    {{-- {{ $paginationSkills->links('pagination::bootstrap-4') }} --}}
+                    {{ $paginationUser->links('pagination::bootstrap-4') }}
                 </div>
             </div>
 
