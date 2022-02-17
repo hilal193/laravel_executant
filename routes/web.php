@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AvatarController;
 
 /*
@@ -82,6 +83,28 @@ route::get("/admin/{avatars}/download",[AvatarController::class,"download"])->na
 // url store
 route::post("/admin/avatarsurl/store",[AvatarController::class,"storeUrl"])->name("avatars.url.store");
 
+
+
+// image
+
+// create
+route::get("/admin/images/create",[ImageController::class,"create"])->name("images.create");
+// store
+route::post("/admin/images/store",[ImageController::class,"store"])->name("images.store");
+// affiche
+route::get("/admin/images/index",[ImageController::class,"index"])->name("images.index");
+// del
+Route::delete('/images/{id}/deleteimages', [ImageController::class,"destroy"])->name("images.destroy");
+// show
+route::get("/admin/{images}/showindex",[ImageController::class,"show"])->name("images.show");
+// edit
+route::get("/admin/{images}/editindex",[ImageController::class,"edit"])->name("images.edit");
+// update
+route::put("/admin/{images}/updateindex",[ImageController::class,"update"])->name("images.update");
+// download
+route::get("/admin/{images}/download",[ImageController::class,"download"])->name("images.download");
+// url store
+route::post("/admin/imagesurl/store",[ImageController::class,"storeUrl"])->name("images.url.store");
 
 
 
