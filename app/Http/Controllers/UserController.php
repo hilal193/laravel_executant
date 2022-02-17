@@ -6,6 +6,7 @@ use App\Models\Avatar;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -41,12 +42,13 @@ class UserController extends Controller
     {
         // dump($user);
         // dd($request);
-        $user -> avatar=$request->avatar;
+        $user -> avatar_id=$request->avatar_id;
         $user -> name=$request->name;
         $user -> prenom=$request->prenom;
         $user -> age=$request->age;
         $user -> email=$request->email;
         $user -> role=$request->role;
+        $user -> password=Hash::make($request->password);
         $user -> save();
         return redirect()->back();
     }

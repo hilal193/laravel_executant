@@ -19,8 +19,8 @@
         </li>
 
         <li>
-            {{-- <a href="{{route('works.index')}}"> --}}
-            <a href="#">
+            <a href="{{route('users.index')}}">
+            {{-- <a href="#"> --}}
 
                 <i class="fa fa-home retire" aria-hidden="true"></i> USER
             </a>
@@ -86,14 +86,27 @@
     </div>
 
     <div class="row">
+        @forelse ($avatarTout as $item)
         <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ $item->url }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">nom avatar{{ $item->nom }} </p>
+                </div>
+              </div>
+        </div>
+        @empty
+        <p>rien ne se passe</p>
+        @endforelse
+        {{-- <div class="col-4">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ asset('') }}" alt="Card image cap">
                 <div class="card-body">
                   <p class="card-text">nom avatar</p>
                 </div>
               </div>
-        </div>
+        </div> --}}
+
     </div>
 
 </div>

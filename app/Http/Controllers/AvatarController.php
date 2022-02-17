@@ -9,13 +9,13 @@ class AvatarController extends Controller
 {
     public function index()
     {
-        //  $avatarTout = Avatar::all();
-        return view("admin.avatars.index");
+        $avatarTout = Avatar::all();
+        return view("admin.avatars.index",compact("avatarTout"));
 
     }
     public function create()
     {
-
+        return view("admin.avatars.create");
     }
 
     public function store()
