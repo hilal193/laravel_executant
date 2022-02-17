@@ -89,9 +89,10 @@
         @forelse ($avatarTout as $item)
         <div class="col-4">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ $item->url }}" alt="Card image cap">
+                {{-- <img class="card-img-top" src="{{ $item->url }}" alt="Card image cap"> --}}
+                <img class="card-img-top" src="{{ asset("img/". $item->url) }}" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">nom avatar{{ $item->nom }} </p>
+                  <p class="card-text">{{ $item->nom }} </p>
                 </div>
               </div>
         </div>
@@ -107,6 +108,20 @@
               </div>
         </div> --}}
 
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <form action="{{ route("avatars.store") }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="img" class="form-control" id="img">
+            <label for="nom" class="form-control">Entrez le nom de l'image</label>
+            <input type="text" name="nom" class="form-control" id="nom">
+
+            <button class="btn btn-outline-secondary" type="submit" id="img">Button</button>
+
+            </form>
+        </div>
     </div>
 
 </div>
