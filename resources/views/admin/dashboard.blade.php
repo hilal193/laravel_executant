@@ -96,6 +96,15 @@
     <h2 class="sub-header">Dashboard</h2>
 
               <h3>COMING SOON...</h3>
+
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpngNVehAA_iKVc8ijVZ5WSYyZJD50PKRBGeV82SUS_9WPycZj_DJOlLawnQfp_U4xjQg&usqp=CAU" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Nom: {{ Auth::user()->name }}</p>
+                  <p class="card-text">Prenom : {{ Auth::user()->prenom }}</p>
+                  <p class="card-text">Email : {{ Auth::user()->email }}</p>
+                </div>
+              </div>
 </div>
 
 
