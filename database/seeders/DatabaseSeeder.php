@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             AvatarSeeder::class,
             CategorieSeeder::class,
             GalerieSeeder::class,
+            ImageSeeder::class,
             UserSeeder::class,
         ]);
     }

@@ -9,8 +9,9 @@ class ImageController extends Controller
 {
     public function index()
     {
+        $imageAll = Image::all();
         $imageTout = Image::orderBy("created_at","desc")->paginate(2);
-        return view("admin.images.index");
+        return view("admin.images.index", compact("imageAll","imageTout"));
     }
 
     public function create()

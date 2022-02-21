@@ -14,7 +14,7 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("image")->insert([
+        DB::table("images")->insert([
             [
                 "url"=>"manga_1.png",
                 "categorie_id"=>1,
