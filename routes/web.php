@@ -80,7 +80,7 @@ route::get("/admin/{avatars}/editindex",[AvatarController::class,"edit"])->name(
 // update
 route::put("/admin/{avatars}/updateindex",[AvatarController::class,"update"])->name("avatars.update");
 // download
-route::get("/admin/{avatars}/download",[AvatarController::class,"download"])->name("avatars.download");
+route::get("/admin/avatar/{avatars}/download",[AvatarController::class,"download"])->name("avatars.download");
 // url store
 route::post("/admin/avatarsurl/store",[AvatarController::class,"storeUrl"])->name("avatars.url.store");
 

@@ -9,8 +9,8 @@ class CategorieController extends Controller
 {
     public function index()
     {
-        $manga = Categorie::all();
-        return view("admin.categories.index", compact("manga"));
+        $cat = Categorie::all();
+        return view("admin.categories.index", compact("cat"));
     }
 
     public function create()

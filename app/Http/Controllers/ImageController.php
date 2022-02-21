@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -41,5 +42,11 @@ class ImageController extends Controller
     public function destroy()
     {
         # code...
+    }
+    public function download(Image $images)
+    {
+        // dd($images);
+        return Storage::disk('public')->download('img/'. $images->url);
+        // return redirect()->back()->with('success', "image en téléchargement ...");
     }
 }

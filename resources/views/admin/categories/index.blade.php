@@ -81,22 +81,51 @@
 
 <div class="content-container">
 
-    <div class="d-flex align-items-center">
-        {{-- <h2>Images COUNT : {{ count($imageAll) }} /5</h2> --}}
-    </div>
-        <div class="row">
-            {{-- @foreach ($imageAll as $item)
-            <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset("img/". $item->url) }}" alt="Card image cap">
-                    <div class="card-body">
-                       <p> {{ $item->url }}</p>
-                    </div>
-                </div>
-            </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-info">
+                    <th>#id</th>
+                      <th>NOM</th>
+                      <th>AVATAR</th>
+                      <th>PRENOM</th>
+                      <th>AGE</th>
+                      <th>EMAIL</th>
+                      <th>ROLE</th>
+                      <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($cat as $item)
+                <tr>
+                    <td>{{ $item->id }}</td>
+                    {{-- <td><img src="{{ asset('img/'. $item->avatar->url) }}" style="height:50px; width:50px; border-radius: 50%;" alt=""></td> --}}
+                    <td>{{ $item->name }}</td>
+                    {{-- <td>{{ $item->prenom }}</td>
+                    <td>{{ $item->age }}</td>
+                    <td>{{ $item->email }}</td>
+                    <td>{{ $item->role->name }}</td> --}}
 
-            @endforeach --}}
-        </div>
+                </tr>
+
+                @empty
+                <tr>
+                    <td>Vide</td>
+                    <td>Vide</td>
+                    <td>Vide</td>
+                    <td>Vide</td>
+                    <td>Vide</td>
+                    <td>Vide</td>
+                    <td>Vide</td>
+                    <td>Vide</td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+        <div>
+            {{-- {{ $paginationUser->links('pagination::bootstrap-4') }} --}}
+    </div>
+
 </div>
 
 
