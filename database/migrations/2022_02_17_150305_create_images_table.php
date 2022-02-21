@@ -18,8 +18,8 @@ class CreateImagesTable extends Migration
             $table->string('nom');
             // $table->string('url');
             // FK
-            $table->unsignedBigInteger('url_id');
-            $table->foreign('url_id')->references('id')->on("categories");
+            $table->unsignedBigInteger('categorie_id');
+            $table->foreign('categorie_id')->references('id')->on("categories");
             $table->timestamps();
         });
     }

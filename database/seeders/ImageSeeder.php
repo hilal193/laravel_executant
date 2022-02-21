@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategorieSeeder extends Seeder
+class ImageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,17 +14,25 @@ class CategorieSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("categories")->insert([
+        DB::table("image")->insert([
             [
-                "name"=>"manga",
+                "url"=>"manga_1.png",
+                "categorie_id"=>1,
                 "created_at"=>now(),
             ],
             [
-                "name"=>"dessin animé",
+                "url"=>"manga_2.jpg",
+                "categorie_id"=>1,
                 "created_at"=>now(),
             ],
             [
-                "name"=>"cartoon",
+                "url"=>"cartoon_.jpg",
+                "categorie_id"=>2,
+                "created_at"=>now(),
+            ],
+            [
+                "url"=>"dessin_.jpg",
+                "categorie_id"=>3,
                 "created_at"=>now(),
             ],
         ]);
