@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\GallerieController;
 use App\Http\Controllers\CategorieController;
 
 /*
@@ -131,6 +132,26 @@ route::post("/admin/categoriesurl/store",[CategorieController::class,"storeUrl"]
 
 // affiche
 route::get("/admin/dashboard/index",[FrontController::class,"admin"])->name("admin.index");
+
+
+// gallerie
+
+// store
+route::post("/admin/galleries/store",[GallerieController::class,"store"])->name("galleries.store");
+// affiche
+route::get("/admin/galleries/index",[GallerieController::class,"index"])->name("galleries.index");
+// del
+Route::delete('/images/{id}/deletegalleries', [GallerieController::class,"destroy"])->name("galleries.destroy");
+// show
+route::get("/admin/{galleries}/showindex",[GallerieController::class,"show"])->name("galleries.show");
+// edit
+route::get("/admin/{galleries}/editindex",[GallerieController::class,"edit"])->name("galleries.edit");
+// update
+route::put("/admin/{galleries}/updateindex",[GallerieController::class,"update"])->name("galleries.update");
+// download
+route::get("/admin/{galleries}/download",[GallerieController::class,"download"])->name("galleries.download");
+// url store
+route::post("/admin/galleriesurl/store",[GallerieController::class,"storeUrl"])->name("galleries.url.store");
 
 
 

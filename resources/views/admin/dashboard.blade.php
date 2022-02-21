@@ -54,8 +54,8 @@
 
         <li>
             {{-- <a href="{{route('portfolio.affichage')}}"> --}}
-            {{-- <a href="{{route('contact.index')}}"> --}}
-            <a href="#">
+            <a href="{{route('galleries.index')}}">
+            {{-- <a href="#"> --}}
 
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> GALLERIES
             </a>
