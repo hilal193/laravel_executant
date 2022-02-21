@@ -89,8 +89,14 @@
                 <button class="btn btn-primary">Deconnexion</button>
 
                 </form>
+                {{-- @dd(Auth::user()->name) --}}
+              {{-- <h3>Bonjour : {{ Auth::user()->name}} </h3> --}}
+              {{-- <h3>Bonjour : {{ Auth::user()->name}} </h3> --}}
+              <h3>Bonjour : {{ Auth::user()->name}} {{ Auth::user()->prenom}} </h3>
 
               <h3>All users : </h3>
+              {{-- <h3>Users Count: {{ count($toutUser) }} </h3> --}}
+
               <p>Nombre d'utilisateurs: <span class="text-warning"> {{ count($toutUser) }} </span></p>
               <p> ADD Project :
                    <a href="#" class="btn btn vert pt-1 m-1">+ADD</a>
@@ -117,7 +123,8 @@
                         @forelse ($paginationUser as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            <td><img src="{{ $item->avatar }}" style="height:50px; width:50px; border-radius: 50%;" alt=""></td>
+                            {{-- <td><img src="{{ $item->avatar }}" style="height:50px; width:50px; border-radius: 50%;" alt=""></td> --}}
+                            <td><img src="{{ asset('img/'. $item->avatar->url) }}" style="height:50px; width:50px; border-radius: 50%;" alt=""></td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->prenom }}</td>
                             <td>{{ $item->age }}</td>

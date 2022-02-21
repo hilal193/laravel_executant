@@ -86,6 +86,18 @@
         <h1>AVATARS</h1>
     </div>
 
+    <h2>Tout mes avatars : {{ count($avatarTout) }} / 8</h2>
+
+    @if (count($avatarTout) < 5)
+    <div class="flex justify-center">
+        <p>je rajoute un button create</p>
+        {{-- <a href="{{ route("avatars.create") }}" class=""></a> --}}
+    </div>
+
+    @else
+    <p>Maximum avatar atteint</p>
+    @endif
+
     <div class="row">
         @forelse ($avatarTout as $item)
         <div class="col-4">

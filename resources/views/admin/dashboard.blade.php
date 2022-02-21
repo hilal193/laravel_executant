@@ -89,6 +89,8 @@
     </form>
 
     <h1>My dashboard</h1>
+    <h3>Bonjour : {{ Auth::user()->name}} {{ Auth::user()->prenom}} </h3>
+
 
     <hr>
     <h2 class="sub-header">Dashboard</h2>
