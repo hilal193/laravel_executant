@@ -34,19 +34,47 @@
             </div>
 
              <!-- AGE -->
-             <div>
+             {{-- <div>
                 <x-label for="avatar" :value="__('avatar')" />
 
                 <x-input id="avatar" class="block mt-1 w-full" type="file" name="avatar" :value="old('avatar')" required autofocus />
                 <select name="avatar" id="">
-                    {{-- @foreach ($avatarTout as $item)
+                     @foreach ($avatarTout as $item)
                     <option value="{{ $item->id }}">
                         {{ $item->nom }}
                     </option>
 
-                    @endforeach --}}
+                    @endforeach
                 </select>
-            </div>
+            </div> --}}
+
+            {{-- SELECT AVATAR -> fichier register --}}
+                <div class="mt-5">
+                <div class="mb-3 xl:w-96">
+                    <label for="">Select avatar</label>
+                  <select name="avatar_id" class="form-select appearance-none
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                      @foreach ($avatars as $item)
+                          <option value="{{ $item->id }}">{{ $item->nom }}</option>
+                      @endforeach
+                  </select>
+                </div>
+              </div>
+
+
 
             <!-- Email Address -->
             <div class="mt-4">
