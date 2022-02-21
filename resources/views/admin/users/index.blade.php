@@ -2,7 +2,7 @@
 
 @section('content')
 {{-- sidebar --}}
-<div class="sidebar-container mt-10 pt-10">
+{{-- <div class="sidebar-container mt-10 pt-10">
     <div class="sidebar-logo">
         Back Office
     </div>
@@ -10,7 +10,6 @@
     <ul class="sidebar-navigation">
         <li class="header">Affichage</li>
         <li>
-            {{-- <a href="{{route('works.index')}}"> --}}
             <a href="#">
 
                 <i class="fa fa-home retire" aria-hidden="true"></i> DASHBOARD
@@ -18,7 +17,6 @@
         </li>
 
         <li>
-            {{-- <a href="{{route('works.index')}}"> --}}
             <a href="#">
 
                 <i class="fa fa-home retire" aria-hidden="true"></i> USER
@@ -26,25 +24,19 @@
         </li>
 
         <li>
-            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
             <a href="{{route('avatars.index')}}">
-            {{-- <a href="#"> --}}
 
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> Avatars
             </a>
         </li>
         <li>
-            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
             <a href="{{route('images.index')}}">
 
-            {{-- <a href="#"> --}}
 
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> IMAGES
             </a>
         </li>
         <li>
-            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
-            {{-- <a href="{{route('contact.index')}}"> --}}
             <a href="#">
 
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> CATEGORIES
@@ -52,8 +44,6 @@
         </li>
 
         <li>
-            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
-            {{-- <a href="{{route('contact.index')}}"> --}}
             <a href="#">
 
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> GALLERIES
@@ -76,7 +66,7 @@
             </a>
         </li>
     </ul>
-</div>
+</div> --}}
 
 
 {{-- ici --}}

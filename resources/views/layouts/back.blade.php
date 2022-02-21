@@ -10,6 +10,7 @@
     <link href={{ asset("css/style.css") }} rel="stylesheet">
 </head>
 <body>
+    @include('admin.partials.sidebar')
     @yield('content')
 
     <script src="{{ asset("js/app.js") }}"></script>

@@ -129,7 +129,8 @@ route::get("/admin/{categories}/download",[CategorieController::class,"download"
 // url store
 route::post("/admin/categoriesurl/store",[CategorieController::class,"storeUrl"])->name("categories.url.store");
 
-
+// affiche
+route::get("/admin/dashboard/index",[FrontController::class,"admin"])->name("admin.index");
 
 
 

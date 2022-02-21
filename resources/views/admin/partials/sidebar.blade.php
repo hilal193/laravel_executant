@@ -1,9 +1,4 @@
-@extends('layouts.back')
-
-@section('content')
-
-{{-- sidebar --}}
-{{-- <div class="sidebar-container mt-10 pt-10">
+<div class="sidebar-container mt-10 pt-10">
     <div class="sidebar-logo">
         Back Office
     </div>
@@ -11,7 +6,8 @@
     <ul class="sidebar-navigation">
         <li class="header">Affichage</li>
         <li>
-            <a href="#">
+            <a href="{{route('admin.index')}}">
+            {{-- <a href="#"> --}}
 
                 <i class="fa fa-home retire" aria-hidden="true"></i> DASHBOARD
             </a>
@@ -19,28 +15,46 @@
 
         <li>
             <a href="{{route('users.index')}}">
+            {{-- <a href="#"> --}}
+
                 <i class="fa fa-home retire" aria-hidden="true"></i> USER
             </a>
         </li>
 
         <li>
-            <a href="#">
+            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
+            <a href="{{route('avatars.index')}}">
+            {{-- <a href="#"> --}}
+
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> Avatars
             </a>
         </li>
         <li>
-            <a href="#">
+            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
+            <a href="{{route('images.index')}}">
+            {{-- <a href="#"> --}}
+
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> IMAGES
             </a>
         </li>
         <li>
-            <a href="#">
+            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
+            {{-- <a href="{{route('contact.index')}}"> --}}
+            <a href="{{route('categories.index')}}">
+
+            {{-- <a href="#"> --}}
+
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> CATEGORIES
             </a>
         </li>
 
         <li>
+            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
+            {{-- <a href="{{route('contact.index')}}"> --}}
+            {{-- <a href="{{route('galleries.index')}}"> --}}
+
             <a href="#">
+
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> GALLERIES
             </a>
         </li>
@@ -61,30 +75,4 @@
             </a>
         </li>
     </ul>
-</div> --}}
-
-
-<div class="content-container">
-
-    <div class="d-flex align-items-center">
-        <h2>Images COUNT : {{ count($imageAll) }} /5</h2>
-    </div>
-        <div class="row">
-            @foreach ($imageAll as $item)
-            <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset("img/". $item->url) }}" alt="Card image cap">
-                    <div class="card-body">
-                       <p> {{ $item->url }}</p>
-                       <a href="{{ route("images.download", $item->id) }}">download</a>
-                    </div>
-                </div>
-            </div>
-
-            @endforeach
-        </div>
 </div>
-
-
-
-@endsection
