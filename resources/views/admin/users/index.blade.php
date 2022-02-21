@@ -35,8 +35,9 @@
         </li>
         <li>
             {{-- <a href="{{route('portfolio.affichage')}}"> --}}
-            {{-- <a href="{{route('about.index')}}"> --}}
-            <a href="#">
+            <a href="{{route('images.index')}}">
+
+            {{-- <a href="#"> --}}
 
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> IMAGES
             </a>
