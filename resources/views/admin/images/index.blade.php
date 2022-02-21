@@ -90,7 +90,7 @@
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="{{ asset("img/". $item->url) }}" alt="Card image cap">
                     <div class="card-body">
-                       <p> {{ $item->name }}</p>
+                       <p> {{ $item->url }}</p>
                     </div>
                 </div>
             </div>

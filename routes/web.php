@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\CategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +106,28 @@ route::put("/admin/{images}/updateindex",[ImageController::class,"update"])->nam
 route::get("/admin/{images}/download",[ImageController::class,"download"])->name("images.download");
 // url store
 route::post("/admin/imagesurl/store",[ImageController::class,"storeUrl"])->name("images.url.store");
+
+
+// categories
+
+// create
+route::get("/admin/categories/create",[CategorieController::class,"create"])->name("categories.create");
+// store
+route::post("/admin/categories/store",[CategorieController::class,"store"])->name("categories.store");
+// affiche
+route::get("/admin/categories/index",[CategorieController::class,"index"])->name("categories.index");
+// del
+Route::delete('/categories/{id}/deletecategories', [CategorieController::class,"destroy"])->name("categories.destroy");
+// show
+route::get("/admin/{categories}/showindex",[CategorieController::class,"show"])->name("categories.show");
+// edit
+route::get("/admin/{categories}/editindex",[CategorieController::class,"edit"])->name("categories.edit");
+// update
+route::put("/admin/{categories}/updateindex",[CategorieController::class,"update"])->name("categories.update");
+// download
+route::get("/admin/{categories}/download",[CategorieController::class,"download"])->name("categories.download");
+// url store
+route::post("/admin/categoriesurl/store",[CategorieController::class,"storeUrl"])->name("categories.url.store");
 
 
 
