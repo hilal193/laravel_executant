@@ -46,7 +46,7 @@ require __DIR__.'/auth.php';
 
 
 // user
-
+Route::middleware(['auth','isAdmin'])->group(function () {
 // create
 route::get("/admin/users/create",[UserController::class,"create"])->name("users.create");
 // store
@@ -61,10 +61,11 @@ route::get("/admin/{users}/showindex",[UserController::class,"show"])->name("use
 route::get("/admin/{users}/editindex",[UserController::class,"edit"])->name("users.edit");
 // update
 route::put("/admin/{users}/updateindex",[UserController::class,"update"])->name("users.update");
-
+});
 
 
 // avatar
+Route::middleware(['auth','isAdmin'])->group(function () {
 
 // create
 route::get("/admin/avatars/create",[AvatarController::class,"create"])->name("avatars.create");
@@ -84,10 +85,12 @@ route::put("/admin/{avatars}/updateindex",[AvatarController::class,"update"])->n
 route::get("/admin/avatar/{avatars}/download",[AvatarController::class,"download"])->name("avatars.download");
 // url store
 route::post("/admin/avatarsurl/store",[AvatarController::class,"storeUrl"])->name("avatars.url.store");
+});
 
 
 
 // image
+Route::middleware(['auth'])->group(function () {
 
 // create
 route::get("/admin/images/create",[ImageController::class,"create"])->name("images.create");
@@ -107,9 +110,10 @@ route::put("/admin/{images}/updateindex",[ImageController::class,"update"])->nam
 route::get("/admin/{images}/download",[ImageController::class,"download"])->name("images.download");
 // url store
 route::post("/admin/imagesurl/store",[ImageController::class,"storeUrl"])->name("images.url.store");
-
+});
 
 // categories
+Route::middleware(['auth'])->group(function () {
 
 // create
 route::get("/admin/categories/create",[CategorieController::class,"create"])->name("categories.create");
@@ -133,10 +137,12 @@ route::post("/admin/categoriesurl/store",[CategorieController::class,"storeUrl"]
 // affiche
 route::get("/admin/dashboard/index",[FrontController::class,"admin"])->name("admin.index");
 
+});
 
 
 
 // gallerie
+Route::middleware(['auth'])->group(function () {
 
 // store
 route::post("/admin/galleries/store",[GallerieController::class,"store"])->name("galleries.store");
@@ -155,5 +161,6 @@ route::get("/admin/{galleries}/download",[GallerieController::class,"download"])
 // url store
 route::post("/admin/galleriesurl/store",[GallerieController::class,"storeUrl"])->name("galleries.url.store");
 
+});
 
 
