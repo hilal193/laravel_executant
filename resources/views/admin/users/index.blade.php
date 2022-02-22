@@ -79,10 +79,10 @@
                 <button class="btn btn-primary">Deconnexion</button>
 
                 </form>
+                <h3>Bonjour : {{ Auth::user()->name}} {{ Auth::user()->prenom}} </h3>
                 {{-- @dd(Auth::user()->name) --}}
               {{-- <h3>Bonjour : {{ Auth::user()->name}} </h3> --}}
               {{-- <h3>Bonjour : {{ Auth::user()->name}} </h3> --}}
-              <h3>Bonjour : {{ Auth::user()->name}} {{ Auth::user()->prenom}} </h3>
 
               <h3>All users : </h3>
               {{-- <h3>Users Count: {{ count($toutUser) }} </h3> --}}
@@ -114,6 +114,7 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             {{-- <td><img src="{{ $item->avatar }}" style="height:50px; width:50px; border-radius: 50%;" alt=""></td> --}}
+                            @dump($item->avatar->url)
                             <td><img src="{{ asset('img/'. $item->avatar->url) }}" style="height:50px; width:50px; border-radius: 50%;" alt=""></td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->prenom }}</td>
@@ -121,15 +122,15 @@
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->role->name }}</td>
 
-                             {{-- <td>
-                            <a href="{{route('skills.show', $item->id)}}" class="btn btn vert">Show</a>
-                            <a href="{{route('skills.edit', $item->id)}}" class="btn btn orange edit">Edit</a>
-                            <form action="{{ route("skills.destroy", $item->id) }}" method="POST">
+                             <td class="d-flex">
+                            {{-- <a href="{{route('users.show', $item->id)}}" class="btn btn vert">Show</a> --}}
+                            <a href="{{route('users.edit', $item->id)}}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route("users.destroy", $item->id) }}" method="POST">
                                 @csrf
                             @method('DELETE')
-                                <button type="submit" class="btn rouge">Delete</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </td>
-                            </form> --}}
+                            </form>
 
                         </tr>
 
