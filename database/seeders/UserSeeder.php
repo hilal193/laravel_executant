@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
                 // "avatar" => "http://www.fulguropop.com/wp-content/uploads/2021/10/sacrifice-vegeta-1.jpg",
                 "avatar_id" => 3,
 
-                "role_id" => 2,
+                "role_id" => 3,
                 "email" => "vegeta@hotmail.com",
                 "password" => Hash::make("vegeta"),
                 "created_at" => now()

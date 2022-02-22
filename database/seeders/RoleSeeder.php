@@ -23,6 +23,10 @@ class RoleSeeder extends Seeder
                 "name" => "client",
                 "created_at" => now()
             ],
+            [
+                "name" => "webmaster",
+                "created_at" => now()
+            ],
         ]);
     }
 }

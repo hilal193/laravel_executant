@@ -42,6 +42,9 @@ class UserController extends Controller
     {
         // dump($user);
         // dd($request);
+        $user = User::find($request);
+        $this->authorize('realUser', $user);
+
         $user -> avatar_id=$request->avatar_id;
         $user -> name=$request->name;
         $user -> prenom=$request->prenom;
