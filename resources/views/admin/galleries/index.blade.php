@@ -16,7 +16,7 @@
                 <img class="card-img-top" src="{{ asset("img/". $item->url) }}" alt="Card image cap">
                 <div class="card-body">
                    <p> {{ $item->url }}</p>
-                   <a href="{{ route("images.download", $item->id) }}">download</a>
+                   <a href="{{ route("images.download", $item->id) }}" class="btn btn-secondary">download</a>
                 </div>
             </div>
         </div>

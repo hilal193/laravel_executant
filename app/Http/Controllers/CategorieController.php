@@ -15,7 +15,7 @@ class CategorieController extends Controller
 
     public function create()
     {
-        # code...
+        return view('admin.categories.create');
     }
 
     public function store()
@@ -37,8 +37,9 @@ class CategorieController extends Controller
         # code...
     }
 
-    public function destroy()
+    public function destroy(Categorie $categories)
     {
-        # code...
+        $categories->delete();
+        return redirect()->back();
     }
 }

@@ -118,7 +118,7 @@ route::post("/admin/categories/store",[CategorieController::class,"store"])->nam
 // affiche
 route::get("/admin/categories/index",[CategorieController::class,"index"])->name("categories.index");
 // del
-Route::delete('/categories/{id}/deletecategories', [CategorieController::class,"destroy"])->name("categories.destroy");
+Route::delete('/categories/{categories}/deletecategories', [CategorieController::class,"destroy"])->name("categories.destroy");
 // show
 route::get("/admin/{categories}/showindex",[CategorieController::class,"show"])->name("categories.show");
 // edit
@@ -132,6 +132,8 @@ route::post("/admin/categoriesurl/store",[CategorieController::class,"storeUrl"]
 
 // affiche
 route::get("/admin/dashboard/index",[FrontController::class,"admin"])->name("admin.index");
+
+
 
 
 // gallerie

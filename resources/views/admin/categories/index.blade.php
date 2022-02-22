@@ -71,12 +71,12 @@
                 <tr class="table-info">
                     <th>#id</th>
                       <th>NOM</th>
+                      <th>ACTIONS</th>
                       <th>AVATAR</th>
                       <th>PRENOM</th>
                       <th>AGE</th>
                       <th>EMAIL</th>
                       <th>ROLE</th>
-                      <th>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,11 +84,26 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     {{-- <td><img src="{{ asset('img/'. $item->avatar->url) }}" style="height:50px; width:50px; border-radius: 50%;" alt=""></td> --}}
-                    <td>{{ $item->name }}</td>
+                    <td>nom de la categorie : {{ $item->name }}</td>
+                        <td class="d-flex">
+                        {{-- <a href="{{route('users.show', $item->id)}}" class="btn btn vert">Show</a> --}}
+                        <a href="{{route('categories.edit', $item->id)}}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route("categories.destroy", $item->id) }}" method="POST">
+                            @csrf
+                        @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </td>
+                        </form>
                     {{-- <td>{{ $item->prenom }}</td>
                     <td>{{ $item->age }}</td>
                     <td>{{ $item->email }}</td>
                     <td>{{ $item->role->name }}</td> --}}
+                    <td>
+                        <div class="py-12 w-full" >
+                        <div class="text-center">
+                            <a href="{{route('categories.create')}}"><button class="btn btn-success">Ajouter +</button></a>
+                        </div>
+                    </td>
 
                 </tr>
 
