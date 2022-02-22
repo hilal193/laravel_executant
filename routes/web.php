@@ -73,7 +73,7 @@ route::post("/admin/avatars/store",[AvatarController::class,"store"])->name("ava
 // affiche
 route::get("/admin/avatars/index",[AvatarController::class,"index"])->name("avatars.index");
 // del
-Route::delete('/avatars/{id}/deleteavatars', [AvatarController::class,"destroy"])->name("avatars.destroy");
+Route::delete('/avatars/{avatars}/deleteavatars', [AvatarController::class,"destroy"])->name("avatars.destroy");
 // show
 route::get("/admin/{avatars}/showindex",[AvatarController::class,"show"])->name("avatars.show");
 // edit

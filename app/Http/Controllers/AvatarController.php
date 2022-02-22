@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avatar;
+use App\Models\User;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -85,11 +86,24 @@ class AvatarController extends Controller
     public function destroy(Avatar $avatars)
     {
         // Storage
-        $destination = "/img".$avatars->url;
-        Storage::disk("public")->delete($destination);
+        // $destination = "/img".$avatars->url;
+        // Storage::disk("public")->delete($destination);
 
         // DB
+        // $avatars->delete();
+        // return redirect()->back();
+
+        //logique pour attribuer un avatar par défaut à tous les users dont l'avatar va êtresupprimé
+        $users = User::all()->where('avatar_id', $avatars->id);
+        foreach ($users as $user) {
+            $user->avatar_id = 1 ;   //seed 1 = avatar défault
+            $user->save();
+        }
+        // Storage::disk('public')->delete('img/' . $avatar->src);
         $avatars->delete();
+        // return redirect()->route('avatar.index')->with('warning', 'Avatar bien supprimé');
+        // return redirect()->back()->with('warning', 'Avatar bien supprimé');
         return redirect()->back();
+
     }
 }

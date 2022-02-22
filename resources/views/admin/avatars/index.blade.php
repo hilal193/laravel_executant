@@ -89,7 +89,13 @@
                 <img class="card-img-top" style="height:150px; width:150px; border-radius: 50%;" src="{{ asset("img/". $item->url) }}" alt="Card image cap">
                 <div class="card-body">
                   <p class="card-text">{{ $item->nom }} </p>
+                  <form action="{{ route("avatars.destroy", $item->id) }}" method="POST">
+                    @csrf
+                @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
                 </div>
+
               </div>
         </div>
         @empty
