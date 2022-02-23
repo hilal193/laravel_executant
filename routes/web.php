@@ -190,6 +190,8 @@ Route::middleware(['auth'])->group(function () {
 // article
 Route::middleware(['auth'])->group(function () {
 
+    // create
+    route::get("/admin/articles/create",[ArticleController::class,"create"])->name("articles.create");
     // store
     route::post("/admin/articles/store",[ArticleController::class,"store"])->name("articles.store");
     // affiche
@@ -213,6 +215,8 @@ Route::middleware(['auth'])->group(function () {
     // blog
 Route::middleware(['auth'])->group(function () {
 
+    // create
+     route::get("/admin/blogs/create",[BlogController::class,"create"])->name("blogs.create");
     // store
     route::post("/admin/blogs/store",[BlogController::class,"store"])->name("blogs.store");
     // affiche

@@ -19,8 +19,8 @@ class BlogController extends Controller
         // return view("admin.blogs.index",compact("blogTout"));
         // return view("admin.blog.index");
 
-        $articles = Article::all();
-        return view('admin.blog.index', compact('articles'));
+        $articleTout = Article::all();
+        return view('admin.blog.index', compact('articleTout'));
     }
 
     /**

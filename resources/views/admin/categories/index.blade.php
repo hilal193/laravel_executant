@@ -64,6 +64,7 @@
 
 
 <div class="content-container">
+    @include('layouts.flash')
 
     <div class="table-responsive">
         <table class="table table-striped">

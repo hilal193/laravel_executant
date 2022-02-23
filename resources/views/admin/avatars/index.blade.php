@@ -64,6 +64,7 @@
 
 
 <div class="content-container">
+    @include('layouts.flash')
 
     <div class="d-flex align-items-center">
         <h1>AVATARS</h1>
