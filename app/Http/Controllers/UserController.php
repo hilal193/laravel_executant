@@ -42,6 +42,14 @@ class UserController extends Controller
     {
         // dump($user);
         // dd($request);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'age' => 'required|numeric',
+            'email' => 'required|string',
+            'avatar_id' => 'required',
+        ]);
+        
         $user = User::find($request);
         $this->authorize('realUser', $user);
 
@@ -52,7 +60,9 @@ class UserController extends Controller
         $user -> email=$request->email;
         $user -> role=$request->role;
         $user -> password=Hash::make($request->password);
+
+
         $user -> save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Profil a bien été modifié');
     }
 }
