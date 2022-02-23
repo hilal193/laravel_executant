@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,7 +15,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        // $blogTout = Blog::all();
+        // return view("admin.blogs.index",compact("blogTout"));
+        // return view("admin.blog.index");
+
+        $articles = Article::all();
+        return view('admin.blog.index', compact('articles'));
     }
 
     /**

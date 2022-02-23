@@ -67,13 +67,16 @@
         </li>
 
         <li>
-            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
-            {{-- <a href="{{route('contact.index')}}"> --}}
-            <a href="{{route('blog.index')}}">
-
+            <a href="{{route('blogs.index')}}">
             {{-- <a href="#"> --}}
-
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> BLOG
+            </a>
+        </li>
+
+        <li>
+            <a href="{{route('articles.index')}}">
+            {{-- <a href="#"> --}}
+                <i class="fa fa-tachometer retire" aria-hidden="true"></i> ARTICLE
             </a>
         </li>
 

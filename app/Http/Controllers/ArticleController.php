@@ -14,7 +14,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+            $articleTout = Article::all();
+            return view("admin.article.index",compact("articleTout"));
+
     }
 
     /**
@@ -24,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.article.create');
     }
 
     /**
@@ -35,7 +37,29 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "titre" => ["required"],
+            "auteur" => ["required"],
+            "description" => ["required"],
+        ]);
+        $article = new Article();
+        $article->titre = $request->titre;
+        $article->auteur = $request->auteur;
+        $article->description = $request->description;
+        //Condition pour vérifier si le request vient d'input FILE ou un input URL (priorité à l'input FILE)
+        // if ($request->src) {
+        //     $request->file('src')->storePublicly('img/','public');
+        //     $article->src = $request->file('src')->hashName();
+        // }else{
+        //     $fichierURL = file_get_contents($request->srcURL);
+        //     $lien = $request->srcURL;
+        //     $token = substr($lien, strrpos($lien, '/') + 1);
+        //     Storage::disk('public')->put('img/'.$token , $fichierURL);
+        //     $article->src = $token;
+        // }
+
+        $article->save();
+        return redirect()->back()->with('success', 'Article bien modifié !');
     }
 
     /**
@@ -57,7 +81,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('admin.article.edit', compact('article'));
     }
 
     /**
@@ -69,7 +93,31 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        request()->validate([
+            "titre" => ["required"],
+            "auteur" => ["required"],
+            "description" => ["required"],
+        ]);
+
+        $article->titre = $request->titre;
+        $article->auteur = $request->auteur;
+        $article->description = $request->description;
+        // //Condition pour verifier si les champs sont vide ou pas
+        // if ($request->src || $request->srcURL) {
+        //     //Condition pour vérifier si le request vient d'input FILE ou un input URL (priorité à l'input FILE)
+        //     if ($request->src) {
+        //         $request->file('src')->storePublicly('img/','public');
+        //         $article->src = $request->file('src')->hashName();
+        //     }else{
+        //         $fichierURL = file_get_contents($request->srcURL);
+        //         $lien = $request->srcURL;
+        //         $token = substr($lien, strrpos($lien, '/') + 1);
+        //         Storage::disk('public')->put('img/'.$token , $fichierURL);
+        //         $article->src = $token;
+        //     }
+        // }
+        $article->save();
+        return redirect()->back()->with('success', 'Article bien ajouté !');
     }
 
     /**
@@ -80,6 +128,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect()->back()->with('warning', 'Article bien supprimé');
     }
 }
