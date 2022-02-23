@@ -103,7 +103,7 @@ class AvatarController extends Controller
         $avatars->delete();
         // return redirect()->route('avatar.index')->with('warning', 'Avatar bien supprimé');
         // return redirect()->back()->with('warning', 'Avatar bien supprimé');
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Avatar bien supprimé');
 
     }
 }

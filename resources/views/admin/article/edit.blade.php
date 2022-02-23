@@ -3,7 +3,7 @@
 @section('content')
 <div class="container my-5">
     <form action="{{ route('articles.update', $article->id ) }}" method="post" enctype="multipart/form-data"
-        class=" mx-auto" enctype="multipart/form-data">
+        class=" mx-auto">
         @csrf
         @method('PUT')
         <div class="d-flex justify-content-center pt-5">
@@ -75,7 +75,7 @@
         </div>
         <div class='d-flex justify-content-center   pt-5 pb-5'>
             <button
-                class='w-auto btn btn-danger text-white px-4 py-2'>Add</button>
+                class='w-auto btn btn-danger text-white px-4 py-2'>edit</button>
         </div>
 
     </form>

@@ -129,6 +129,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        // dd("test");
         $article->delete();
         return redirect()->back()->with('warning', 'Article bien supprimé');
     }

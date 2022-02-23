@@ -197,7 +197,7 @@ Route::middleware(['auth'])->group(function () {
     // affiche
     route::get("/admin/articles/index",[ArticleController::class,"index"])->name("articles.index");
     // del
-    Route::delete('/articles/{id}/deletearticles', [ArticleController::class,"destroy"])->name("articles.destroy");
+    Route::delete('/articles/{article}/deletearticles', [ArticleController::class,"destroy"])->name("articles.destroy");
     // show
     route::get("/admin/{articles}/showindex",[ArticleController::class,"show"])->name("articles.show");
     // edit
