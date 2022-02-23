@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\GallerieController;
 use App\Http\Controllers\CategorieController;
 
@@ -163,4 +165,69 @@ route::post("/admin/galleriesurl/store",[GallerieController::class,"storeUrl"])-
 
 });
 
+// blog
+Route::middleware(['auth'])->group(function () {
 
+    // store
+    route::post("/admin/galleries/store",[GallerieController::class,"store"])->name("galleries.store");
+    // affiche
+    route::get("/admin/galleries/index",[GallerieController::class,"index"])->name("galleries.index");
+    // del
+    Route::delete('/images/{id}/deletegalleries', [GallerieController::class,"destroy"])->name("galleries.destroy");
+    // show
+    route::get("/admin/{galleries}/showindex",[GallerieController::class,"show"])->name("galleries.show");
+    // edit
+    route::get("/admin/{galleries}/editindex",[GallerieController::class,"edit"])->name("galleries.edit");
+    // update
+    route::put("/admin/{galleries}/updateindex",[GallerieController::class,"update"])->name("galleries.update");
+    // download
+    route::get("/admin/{galleries}/download",[GallerieController::class,"download"])->name("galleries.download");
+    // url store
+    route::post("/admin/galleriesurl/store",[GallerieController::class,"storeUrl"])->name("galleries.url.store");
+
+    });
+
+// article
+Route::middleware(['auth'])->group(function () {
+
+    // store
+    route::post("/admin/articles/store",[ArticleController::class,"store"])->name("articles.store");
+    // affiche
+    route::get("/admin/articles/index",[ArticleController::class,"index"])->name("articles.index");
+    // del
+    Route::delete('/articles/{id}/deletearticles', [ArticleController::class,"destroy"])->name("articles.destroy");
+    // show
+    route::get("/admin/{articles}/showindex",[ArticleController::class,"show"])->name("articles.show");
+    // edit
+    route::get("/admin/{articles}/editindex",[ArticleController::class,"edit"])->name("articles.edit");
+    // update
+    route::put("/admin/{articles}/updateindex",[ArticleController::class,"update"])->name("articles.update");
+    // download
+    route::get("/admin/{articles}/download",[ArticleController::class,"download"])->name("articles.download");
+    // url store
+    route::post("/admin/articlesurl/store",[ArticleController::class,"storeUrl"])->name("articles.url.store");
+
+    });
+
+
+    // blog
+Route::middleware(['auth'])->group(function () {
+
+    // store
+    route::post("/admin/blogs/store",[BlogController::class,"store"])->name("blogs.store");
+    // affiche
+    route::get("/admin/blogs/index",[BlogController::class,"index"])->name("blogs.index");
+    // del
+    Route::delete('/blogs/{id}/deleteblogs', [BlogController::class,"destroy"])->name("blogs.destroy");
+    // show
+    route::get("/admin/{blogs}/showindex",[BlogController::class,"show"])->name("blogs.show");
+    // edit
+    route::get("/admin/{blogs}/editindex",[BlogController::class,"edit"])->name("blogs.edit");
+    // update
+    route::put("/admin/{blogs}/updateindex",[BlogController::class,"update"])->name("blogs.update");
+    // download
+    route::get("/admin/{blogs}/download",[BlogController::class,"download"])->name("blogs.download");
+    // url store
+    route::post("/admin/blogsurl/store",[ArtiBlogControllercleController::class,"storeUrl"])->name("blogs.url.store");
+
+    });

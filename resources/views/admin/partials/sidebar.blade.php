@@ -65,6 +65,18 @@
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> GALLERIES
             </a>
         </li>
+
+        <li>
+            {{-- <a href="{{route('portfolio.affichage')}}"> --}}
+            {{-- <a href="{{route('contact.index')}}"> --}}
+            <a href="{{route('blog.index')}}">
+
+            {{-- <a href="#"> --}}
+
+                <i class="fa fa-tachometer retire" aria-hidden="true"></i> BLOG
+            </a>
+        </li>
+
         {{-- <li class="header">Another Menu</li> --}}
         {{-- <li>
             <a href="#">
