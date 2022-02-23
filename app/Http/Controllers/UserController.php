@@ -40,8 +40,7 @@ class UserController extends Controller
 
     public function update(User $user, Request $request)
     {
-        // dump($user);
-        // dd($request);
+        $this->authorize('realUser', $user);
         $request->validate([
             'name' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
@@ -50,15 +49,14 @@ class UserController extends Controller
             'avatar_id' => 'required',
         ]);
 
-        $user = User::find($request);
-        $this->authorize('realUser', $user);
+        // $user = User::find($request);
 
         $user -> avatar_id=$request->avatar_id;
         $user -> name=$request->name;
         $user -> prenom=$request->prenom;
         $user -> age=$request->age;
         $user -> email=$request->email;
-        $user -> role=$request->role;
+        // $user -> role=$request->role;
         $user -> password=Hash::make($request->password);
 
 

@@ -61,8 +61,8 @@ Route::delete('/users/{id}/deleteusers', [UserController::class,"destroy"])->nam
 route::get("/admin/{user}/showindex",[UserController::class,"show"])->name("users.show");
 // edit
 route::get("/admin/{user}/editindex",[UserController::class,"edit"])->name("users.edit");
-// update
-route::put("/admin/{user}/updateindex",[UserController::class,"update"])->name("users.update");
+// update 
+route::put("/admin/{user}/updateindex/users",[UserController::class,"update"])->name("users.update");
 });
 Route::put('admin/user/{user}/edit', [UserController::class, 'updateClient'])->middleware('auth')->name('client.update');
 
@@ -145,26 +145,26 @@ route::get("/admin/dashboard/index",[FrontController::class,"admin"])->name("adm
 
 
 // gallerie
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
 
-// store
-route::post("/admin/galleries/store",[GallerieController::class,"store"])->name("galleries.store");
-// affiche
-route::get("/admin/galleries/index",[GallerieController::class,"index"])->name("galleries.index");
-// del
-Route::delete('/images/{id}/deletegalleries', [GallerieController::class,"destroy"])->name("galleries.destroy");
-// show
-route::get("/admin/{galleries}/showindex",[GallerieController::class,"show"])->name("galleries.show");
-// edit
-route::get("/admin/{galleries}/editindex",[GallerieController::class,"edit"])->name("galleries.edit");
-// update
-route::put("/admin/{galleries}/updateindex",[GallerieController::class,"update"])->name("galleries.update");
-// download
-route::get("/admin/{galleries}/download",[GallerieController::class,"download"])->name("galleries.download");
-// url store
-route::post("/admin/galleriesurl/store",[GallerieController::class,"storeUrl"])->name("galleries.url.store");
+// // store
+// route::post("/admin/galleries/store",[GallerieController::class,"store"])->name("galleries.store");
+// // affiche
+// route::get("/admin/galleries/index",[GallerieController::class,"index"])->name("galleries.index");
+// // del
+// Route::delete('/images/{id}/deletegalleries', [GallerieController::class,"destroy"])->name("galleries.destroy");
+// // show
+// route::get("/admin/{galleries}/showindex",[GallerieController::class,"show"])->name("galleries.show");
+// // edit
+// route::get("/admin/{galleries}/editindex",[GallerieController::class,"edit"])->name("galleries.edit");
+// // update
+// route::put("/admin/{galleries}/updateindex",[GallerieController::class,"update"])->name("galleries.update");
+// // download
+// route::get("/admin/{galleries}/download",[GallerieController::class,"download"])->name("galleries.download");
+// // url store
+// route::post("/admin/galleriesurl/store",[GallerieController::class,"storeUrl"])->name("galleries.url.store");
 
-});
+// });
 
 // blog
 Route::middleware(['auth'])->group(function () {
@@ -176,15 +176,15 @@ Route::middleware(['auth'])->group(function () {
     // del
     Route::delete('/images/{id}/deletegalleries', [GallerieController::class,"destroy"])->name("galleries.destroy");
     // show
-    route::get("/admin/{galleries}/showindex",[GallerieController::class,"show"])->name("galleries.show");
+    route::get("/admin/gallerie/{galleries}/showindex",[GallerieController::class,"show"])->name("galleries.show");
     // edit
-    route::get("/admin/{galleries}/editindex",[GallerieController::class,"edit"])->name("galleries.edit");
+    route::get("/admin/gallerie/{galleries}/editindex",[GallerieController::class,"edit"])->name("galleries.edit");
     // update
-    route::put("/admin/{galleries}/updateindex",[GallerieController::class,"update"])->name("galleries.update");
+    route::put("/admin/gallerie/galleries}/updateindex",[GallerieController::class,"update"])->name("galleries.update");
     // download
-    route::get("/admin/{galleries}/download",[GallerieController::class,"download"])->name("galleries.download");
+    route::get("/admin/gallerie/{galleries}/download",[GallerieController::class,"download"])->name("galleries.download");
     // url store
-    route::post("/admin/galleriesurl/store",[GallerieController::class,"storeUrl"])->name("galleries.url.store");
+    route::post("/admin/gallerie/galleriesurl/store",[GallerieController::class,"storeUrl"])->name("galleries.url.store");
 
     });
 
@@ -200,15 +200,15 @@ Route::middleware(['auth'])->group(function () {
     // del
     Route::delete('/articles/{article}/deletearticles', [ArticleController::class,"destroy"])->name("articles.destroy");
     // show
-    route::get("/admin/{articles}/showindex",[ArticleController::class,"show"])->name("articles.show");
+    route::get("/admin/article/{articles}/showindex",[ArticleController::class,"show"])->name("articles.show");
     // edit
-    route::get("/admin/{article}/edit",[ArticleController::class,"edit"])->name("articles.edit");
+    route::get("/admin/article/{article}/edit",[ArticleController::class,"edit"])->name("articles.edit");
     // update
-    route::put("/admin/{article}/updateindexs",[ArticleController::class,"update"])->name("articles.update");
+    route::put("/admin/article/{article}/updateindexs",[ArticleController::class,"update"])->name("articles.update");
     // download
-    route::get("/admin/{articles}/download",[ArticleController::class,"download"])->name("articles.download");
+    route::get("/admin/article/{articles}/download",[ArticleController::class,"download"])->name("articles.download");
     // url store
-    route::post("/admin/articlesurl/store",[ArticleController::class,"storeUrl"])->name("articles.url.store");
+    route::post("/admin/article/articlesurl/store",[ArticleController::class,"storeUrl"])->name("articles.url.store");
 
     });
 
@@ -225,14 +225,14 @@ Route::middleware(['auth'])->group(function () {
     // del
     Route::delete('/blogs/{id}/deleteblogs', [BlogController::class,"destroy"])->name("blogs.destroy");
     // show
-    route::get("/admin/{blogs}/showindex",[BlogController::class,"show"])->name("blogs.show");
+    route::get("/admin/blog/{blogs}/showindex",[BlogController::class,"show"])->name("blogs.show");
     // edit
-    route::get("/admin/{blogs}/editindex",[BlogController::class,"edit"])->name("blogs.edit");
+    route::get("/admin/blog/{blogs}/editindex",[BlogController::class,"edit"])->name("blogs.edit");
     // update
-    route::put("/admin/{blogs}/updateindex",[BlogController::class,"update"])->name("blogs.update");
+    route::put("/admin/blog/{blogs}/updateindex",[BlogController::class,"update"])->name("blogs.update");
     // download
-    route::get("/admin/{blogs}/download",[BlogController::class,"download"])->name("blogs.download");
+    route::get("/admin/blog/{blogs}/download",[BlogController::class,"download"])->name("blogs.download");
     // url store
-    route::post("/admin/blogsurl/store",[ArtiBlogControllercleController::class,"storeUrl"])->name("blogs.url.store");
+    route::post("/admin/blog/blogsurl/store",[ArtiBlogControllercleController::class,"storeUrl"])->name("blogs.url.store");
 
     });

@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         //
         Gate::define('realUser', function($online,$user)
         {
-            return $online->user_id == $user->id;
+            return $online->id == $user->id;
         });
     }
 }

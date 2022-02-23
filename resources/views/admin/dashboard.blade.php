@@ -21,56 +21,56 @@
         <li>
             <a href="{{route('users.index')}}">
 
-                <i class="fa fa-home retire" aria-hidden="true"></i> USER
-            </a>
-        </li>
+<i class="fa fa-home retire" aria-hidden="true"></i> USER
+</a>
+</li>
 
-        <li>
-            <a href="{{route('avatars.index')}}">
-                <i class="fa fa-tachometer retire" aria-hidden="true"></i> Avatars
-            </a>
-        </li>
-        <li>
-            <a href="{{route('images.index')}}">
-                <i class="fa fa-tachometer retire" aria-hidden="true"></i> IMAGES
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-tachometer retire" aria-hidden="true"></i> CATEGORIES
-            </a>
-        </li>
+<li>
+    <a href="{{route('avatars.index')}}">
+        <i class="fa fa-tachometer retire" aria-hidden="true"></i> Avatars
+    </a>
+</li>
+<li>
+    <a href="{{route('images.index')}}">
+        <i class="fa fa-tachometer retire" aria-hidden="true"></i> IMAGES
+    </a>
+</li>
+<li>
+    <a href="#">
+        <i class="fa fa-tachometer retire" aria-hidden="true"></i> CATEGORIES
+    </a>
+</li>
 
-        <li>
-            <a href="{{route('galleries.index')}}">
-                <i class="fa fa-tachometer retire" aria-hidden="true"></i> GALLERIES
-            </a>
-        </li>
-        <li class="header">Another Menu</li>
-        <li>
-            <a href="#">
-                <i class="fa fa-users" aria-hidden="true"></i> Friends
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-cog" aria-hidden="true"></i> Settings
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-info-circle" aria-hidden="true"></i> Information
-            </a>
-        </li>
-    </ul>
+<li>
+    <a href="{{route('galleries.index')}}">
+        <i class="fa fa-tachometer retire" aria-hidden="true"></i> GALLERIES
+    </a>
+</li>
+<li class="header">Another Menu</li>
+<li>
+    <a href="#">
+        <i class="fa fa-users" aria-hidden="true"></i> Friends
+    </a>
+</li>
+<li>
+    <a href="#">
+        <i class="fa fa-cog" aria-hidden="true"></i> Settings
+    </a>
+</li>
+<li>
+    <a href="#">
+        <i class="fa fa-info-circle" aria-hidden="true"></i> Information
+    </a>
+</li>
+</ul>
 </div> --}}
 
 
 <div class="content-container">
     {{-- boutton deco --}}
- <form action="{{ route("logout") }}" method="POST">
-    @csrf
-    <button class="btn btn-primary">Deconnexion</button>
+    <form action="{{ route("logout") }}" method="POST">
+        @csrf
+        <button class="btn btn-primary">Deconnexion</button>
 
     </form>
 
@@ -81,25 +81,27 @@
     <hr>
     <h2 class="sub-header">Dashboard</h2>
 
-              <h3>COMING SOON...</h3>
+    <h3>COMING SOON...</h3>
 
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpngNVehAA_iKVc8ijVZ5WSYyZJD50PKRBGeV82SUS_9WPycZj_DJOlLawnQfp_U4xjQg&usqp=CAU" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Nom: {{ Auth::user()->name }}</p>
-                  <p class="card-text">Prenom : {{ Auth::user()->prenom }}</p>
-                  <p class="card-text">Email : {{ Auth::user()->email }}</p>
-                </div>
-              </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpngNVehAA_iKVc8ijVZ5WSYyZJD50PKRBGeV82SUS_9WPycZj_DJOlLawnQfp_U4xjQg&usqp=CAU"
+            alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">Nom: {{ Auth::user()->name }}</p>
+            <p class="card-text">Prenom : {{ Auth::user()->prenom }}</p>
+            <p class="card-text">Email : {{ Auth::user()->email }}</p>
+        </div>
+    </div>
 
 
 
     {{-- form --}}
     @if (Auth::user()->role_id == 1)
-    <form action="{{ route("users.update",Auth::user()->id) }}" method="POST">
-@else
-    <form action="{{ route('client.update', Auth::user()->id ) }}" method="POST">
-@endif
+        <form action="{{ route("users.update", Auth::user()->id) }}" method="POST">
+    @else
+        <form action="{{ route('client.update', Auth::user()->id ) }}" method="POST">
+    @endif
         @csrf
         @method("PUT")
         @include('layouts.flash')
@@ -143,7 +145,8 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    {{-- fin form --}}
+    {{-- @endif --}}
+        {{-- fin form --}}
 </div>
 
 

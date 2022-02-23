@@ -40,14 +40,20 @@ class CategorieController extends Controller
         return view("admin.categories.edit",compact("categorie"));
     }
 
-    public function update()
+    public function update(Request $request, Categorie $categories)
     {
-        # code...
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $categories->name = $request->name;
+        $categories->save();
+        return redirect()->route('categories.index')->with('success', 'categorie ' . $request->nom .' modifiée !');
     }
 
     public function destroy(Categorie $categories)
     {
         $categories->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Categories supprimé avec toutes les images associées');
     }
 }
