@@ -201,9 +201,9 @@ Route::middleware(['auth'])->group(function () {
     // show
     route::get("/admin/{articles}/showindex",[ArticleController::class,"show"])->name("articles.show");
     // edit
-    route::get("/admin/{articles}/editindex",[ArticleController::class,"edit"])->name("articles.edit");
+    route::get("/admin/{article}/edit",[ArticleController::class,"edit"])->name("articles.edit");
     // update
-    route::put("/admin/{articles}/updateindex",[ArticleController::class,"update"])->name("articles.update");
+    route::put("/admin/{article}/updateindexs",[ArticleController::class,"update"])->name("articles.update");
     // download
     route::get("/admin/{articles}/download",[ArticleController::class,"download"])->name("articles.download");
     // url store
