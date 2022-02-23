@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avatar;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
     public function admin()
     {
-        return view("admin.dashboard");
+        $avatarTout = Avatar::all();
+        return view("admin.dashboard", compact("avatarTout"));
     }
 
     public function home()

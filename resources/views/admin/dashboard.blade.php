@@ -91,6 +91,59 @@
                   <p class="card-text">Email : {{ Auth::user()->email }}</p>
                 </div>
               </div>
+
+
+
+    {{-- form --}}
+    @if (Auth::user()->role_id == 1)
+    <form action="{{ route("users.update",Auth::user()->id) }}" method="POST">
+@else
+    <form action="{{ route('client.update', Auth::user()->id ) }}" method="POST">
+@endif
+        @csrf
+        @method("PUT")
+        @include('layouts.flash')
+        <div class="d-flex justify-content-center pt-5">
+            <div class="flex">
+                <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Modification de ton profil</h1>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="textprenom" value="{{ auth::user()->name }}" name="name" class="form-control" id="nom">
+        </div>
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input type="text" value="{{ auth::user()->prenom }}" name="prenom" class="form-control" id="prenom">
+        </div>
+
+        <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" value="{{ auth::user()->age }}" name="age" class="form-control"
+                id="exampleInputEmail1">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" value="{{ auth::user()->email }}" name="email" class="form-control" id="email">
+        </div>
+        <div class="mb-3">
+            <label for="avatar" class="form-label"></label>
+            <select name="avatar_id" id="avatar">
+
+                @foreach ($avatarTout as $avatar)
+
+                <option {{ $avatar->id== Auth::user()->avatar_id ? "selected": "" }} value="{{ $avatar->id }}">
+                    {{ $avatar->nom }}</option>
+                @endforeach
+            </select>
+
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {{-- fin form --}}
 </div>
 
 

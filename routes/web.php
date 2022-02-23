@@ -58,12 +58,13 @@ route::get("/admin/users/index",[UserController::class,"index"])->name("users.in
 // del
 Route::delete('/users/{id}/deleteusers', [UserController::class,"destroy"])->name("users.destroy");
 // show
-route::get("/admin/{users}/showindex",[UserController::class,"show"])->name("users.show");
+route::get("/admin/{user}/showindex",[UserController::class,"show"])->name("users.show");
 // edit
-route::get("/admin/{users}/editindex",[UserController::class,"edit"])->name("users.edit");
+route::get("/admin/{user}/editindex",[UserController::class,"edit"])->name("users.edit");
 // update
-route::put("/admin/{users}/updateindex",[UserController::class,"update"])->name("users.update");
+route::put("/admin/{user}/updateindex",[UserController::class,"update"])->name("users.update");
 });
+Route::put('admin/user/{user}/edit', [UserController::class, 'updateClient'])->middleware('auth')->name('client.update');
 
 
 // avatar

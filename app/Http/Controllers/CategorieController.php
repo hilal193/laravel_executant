@@ -18,18 +18,26 @@ class CategorieController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        # code...
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $categorie=new Categorie();
+        $categorie->name=$request->name;
+        $categorie->save();
+
+        return redirect()->route('categories.index')->with('success', 'Une nouvelle categorie ajoutée !');
     }
 
     public function show()
     {
         # code...
     }
-    public function edit()
+    public function edit(Categorie $categorie)
     {
-        # code...
+        return view("admin.categories.edit",compact("categorie"));
     }
 
     public function update()

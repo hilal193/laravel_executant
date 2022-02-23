@@ -49,7 +49,7 @@ class UserController extends Controller
             'email' => 'required|string',
             'avatar_id' => 'required',
         ]);
-        
+
         $user = User::find($request);
         $this->authorize('realUser', $user);
 
@@ -65,4 +65,25 @@ class UserController extends Controller
         $user -> save();
         return redirect()->back()->with('success', 'Profil a bien été modifié');
     }
+
+    public function updateClient(User $user, Request $request)
+    {
+        $this->authorize('isRealUser', $user);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'age' => 'required|numeric',
+            'email' => 'required|string',
+            'avatar_id' => 'required',
+        ]);
+        $user->name = $request->name;
+        $user->prenom = $request->prenom;
+        $user->age = $request->age;
+        $user->email = $request->email;
+        $user->avatar_id = $request->avatar_id;
+
+        $user->save();
+        return redirect()->back()->with('success', 'Profil a bien été modifié');
+    }
+
 }
