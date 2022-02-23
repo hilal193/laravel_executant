@@ -91,6 +91,7 @@
             <p class="card-text">Nom: {{ Auth::user()->name }}</p>
             <p class="card-text">Prenom : {{ Auth::user()->prenom }}</p>
             <p class="card-text">Email : {{ Auth::user()->email }}</p>
+            <p class="card-text">Role : {{ Auth::user()->role->name }}</p>
         </div>
     </div>
 

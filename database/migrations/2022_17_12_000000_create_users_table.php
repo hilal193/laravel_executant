@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on("roles");
 
             $table->unsignedBigInteger('avatar_id');
-            $table->foreign('avatar_id')->references('id')->on("avatars")->onDelete("cascade");
+            $table->foreign('avatar_id')->references('id')->on("avatars");
 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
