@@ -84,21 +84,26 @@
 
     <div class="row">
         @forelse ($avatarTout as $item)
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                {{-- <img class="card-img-top" src="{{ $item->url }}" alt="Card image cap"> --}}
-                <img class="card-img-top" style="height:150px; width:150px; border-radius: 50%;" src="{{ asset("img/". $item->url) }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">{{ $item->nom }} </p>
-                  <form action="{{ route("avatars.destroy", $item->id) }}" method="POST">
-                    @csrf
-                @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-                </div>
 
-              </div>
-        </div>
+        @if ($loop->iteration != 1)
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    {{-- <img class="card-img-top" src="{{ $item->url }}" alt="Card image cap"> --}}
+                    <img class="card-img-top" style="height:150px; width:150px; border-radius: 50%;" src="{{ asset("img/". $item->url) }}" alt="Card image cap">
+                    <div class="card-body">
+                    <p class="card-text">{{$loop->iteration}} </p>
+                    <p class="card-text">{{ $item->nom }} </p>
+                    <form action="{{ route("avatars.destroy", $item->id) }}" method="POST">
+                        @csrf
+                    @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    </div>
+
+                </div>
+            </div>
+
+        @endif
         @empty
         <p>rien ne se passe</p>
         @endforelse
