@@ -20,7 +20,7 @@ class BlogController extends Controller
         // return view("admin.blog.index");
 
         $articleTout = Article::all();
-        return view('admin.blogs.index', compact('articleTout'));
+        return view('admin.blog.index', compact('articleTout'));
     }
 
     /**
