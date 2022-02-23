@@ -68,20 +68,20 @@
 
 <div class="content-container">
     {{-- boutton deco --}}
-    <form action="{{ route("logout") }}" method="POST">
+    {{-- <form action="{{ route("logout") }}" method="POST">
         @csrf
         <button class="btn btn-primary">Deconnexion</button>
 
-    </form>
+    </form> --}}
 
-    <h1>My dashboard</h1>
+    {{-- <h1>My dashboard</h1> --}}
+
+
+    <h2 class="sub-header">Dashboard</h2>
+    <hr>
     <h3>Bonjour : {{ Auth::user()->name}} {{ Auth::user()->prenom}} </h3>
 
-
-    <hr>
-    <h2 class="sub-header">Dashboard</h2>
-
-    <h3>COMING SOON...</h3>
+    {{-- <h3>COMING SOON...</h3> --}}
 
     <div class="card" style="width: 18rem;">
         <img class="card-img-top"
