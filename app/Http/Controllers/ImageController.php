@@ -10,6 +10,8 @@ class ImageController extends Controller
 {
     public function index()
     {
+        // $this->authorize("isAdmin");
+
         $imageAll = Image::all();
         $imageTout = Image::orderBy("created_at","desc")->paginate(2);
         return view("admin.images.index", compact("imageAll","imageTout"));
@@ -20,8 +22,28 @@ class ImageController extends Controller
 
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        // $this->authorize("isAdmin");
+        request()->validate([
+            "nom" => ["required"],
+        ]);
+        $image = new Image();
+        $image->nom = $request->nom;
+        $image->categorie_id = $request->categorie_id;
+        if ($request->src) {
+            $request->file('src')->storePublicly('img/','public');
+            $image->src = $request->file('src')->hashName();
+        }else{
+            $fichierURL = file_get_contents($request->srcURL);
+            $lien = $request->srcURL;
+            $token = substr($lien, strrpos($lien, '/') + 1);
+            Storage::disk('public')->put('img/'.$token , $fichierURL);
+            $image->src = $token;
+        }
+
+        $image->save();
+        return redirect()->route('images.index')->with('success', $request->nom . ' bien ajouté !');
 
     }
 
@@ -39,9 +61,11 @@ class ImageController extends Controller
     {
         # code...
     }
-    public function destroy()
+    public function destroy(Image $image)
     {
-        # code...
+        // $this->authorize("isAdmin");
+        $image->delete();
+        return redirect()->route('images.index')->with('warning', 'Image bien supprimé');
     }
     public function download(Image $images)
     {

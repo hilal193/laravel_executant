@@ -65,8 +65,40 @@
 
 
 <div class="content-container">
+    <div class="text-center my-5">
+        <h1>Toute les images</h1>
+        <a class="btn btn-primary" href="{{ route("images.create") }}">Ajouter</a>
+        @include('layouts.flash')
+    </div>
 
-    <div class="d-flex align-items-center">
+    <div class="flex flex-wrap ">
+        @foreach ($imageAll as $image)
+        <div class="mx-auto">
+            <div class="h-100 rounded "
+                style="background-image: url({{ asset('img/'. $image->url) }})">
+
+            </div>
+            <img class="card-img-top" src="{{ asset("img/". $image->url) }}" alt="Card image cap">
+
+            <div class=" w-full bg-white -mt-10 shadow-lg rounded-lg p-5 text-center">
+                <p class="title-post font-medium">Titre de l'image : {{ $image->nom }}</p>
+
+                {{-- <p class="summary-post text-base  ">Categorie : {{ $imageAll->categorie->nom }}</p> --}}
+
+                <form action="{{ route('images.destroy', $image->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+
+
+    {{-- i --}}
+    {{-- <div class="d-flex align-items-center">
         <h2>Images COUNT : {{ count($imageAll) }} /5</h2>
     </div>
         <div class="row">
@@ -82,7 +114,9 @@
             </div>
 
             @endforeach
-        </div>
+        </div> --}}
+
+
 </div>
 
 

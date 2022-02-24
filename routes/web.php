@@ -61,7 +61,7 @@ Route::delete('/users/{id}/deleteusers', [UserController::class,"destroy"])->nam
 route::get("/admin/{user}/showindex",[UserController::class,"show"])->name("users.show");
 // edit
 route::get("/admin/{user}/editindex",[UserController::class,"edit"])->name("users.edit");
-// update 
+// update
 route::put("/admin/{user}/updateindex/users",[UserController::class,"update"])->name("users.update");
 });
 Route::put('admin/user/{user}/edit', [UserController::class, 'updateClient'])->middleware('auth')->name('client.update');
@@ -93,7 +93,7 @@ route::post("/admin/avatarsurl/store",[AvatarController::class,"storeUrl"])->nam
 
 
 // image
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','isAdmin'])->group(function () {
 
 // create
 route::get("/admin/images/create",[ImageController::class,"create"])->name("images.create");
@@ -109,14 +109,14 @@ route::get("/admin/{images}/showindex",[ImageController::class,"show"])->name("i
 route::get("/admin/{images}/editindex",[ImageController::class,"edit"])->name("images.edit");
 // update
 route::put("/admin/{images}/updateindex",[ImageController::class,"update"])->name("images.update");
-// download
-route::get("/admin/{images}/download",[ImageController::class,"download"])->name("images.download");
 // url store
 route::post("/admin/imagesurl/store",[ImageController::class,"storeUrl"])->name("images.url.store");
 });
+// download
+route::get("/admin/{images}/download",[ImageController::class,"download"])->name("images.download");
 
 // categories
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','isAdmin'])->group(function () {
 
 // create
 route::get("/admin/categories/create",[CategorieController::class,"create"])->name("categories.create");
@@ -137,10 +137,10 @@ route::get("/admin/{categories}/download",[CategorieController::class,"download"
 // url store
 route::post("/admin/categoriesurl/store",[CategorieController::class,"storeUrl"])->name("categories.url.store");
 
-// affiche
-route::get("/admin/dashboard/index",[FrontController::class,"admin"])->name("admin.index");
 
 });
+// affiche
+route::get("/admin/dashboard/index",[FrontController::class,"admin"])->name("admin.index");
 
 
 
@@ -189,7 +189,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
 // article
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth',"isAdmin"])->group(function () {
 
     // create
     route::get("/admin/articles/create",[ArticleController::class,"create"])->name("articles.create");

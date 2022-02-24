@@ -19,7 +19,7 @@
                 <i class="fa fa-home retire" aria-hidden="true"></i> DASHBOARD
             </a>
         </li>
-
+        @admin
         <li>
             <a href="{{route('users.index')}}">
             {{-- <a href="#"> --}}
@@ -27,7 +27,9 @@
                 <i class="fa fa-home retire" aria-hidden="true"></i> USER
             </a>
         </li>
+        @endadmin
 
+        @admin
         <li>
             {{-- <a href="{{route('portfolio.affichage')}}"> --}}
             <a href="{{route('avatars.index')}}">
@@ -36,6 +38,9 @@
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> Avatars
             </a>
         </li>
+        @endadmin
+
+        @admin
         <li>
             {{-- <a href="{{route('portfolio.affichage')}}"> --}}
             <a href="{{route('images.index')}}">
@@ -44,6 +49,9 @@
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> IMAGES
             </a>
         </li>
+        @endadmin
+
+        @admin
         <li>
             {{-- <a href="{{route('portfolio.affichage')}}"> --}}
             {{-- <a href="{{route('contact.index')}}"> --}}
@@ -54,6 +62,8 @@
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> CATEGORIES
             </a>
         </li>
+        @endadmin
+
 
         <li>
             {{-- <a href="{{route('portfolio.affichage')}}"> --}}
@@ -73,12 +83,19 @@
             </a>
         </li>
 
+
+        @admin
+
+        {{-- @adminwebmaster --}}
         <li>
             <a href="{{route('articles.index')}}">
             {{-- <a href="#"> --}}
                 <i class="fa fa-tachometer retire" aria-hidden="true"></i> ARTICLE
             </a>
         </li>
+        @endadmin
+
+        {{-- @endadminwebmaster --}}
 
         {{-- <li class="header">Another Menu</li> --}}
         {{-- <li>
