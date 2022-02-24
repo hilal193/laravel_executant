@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -11,15 +12,18 @@ class ImageController extends Controller
     public function index()
     {
         // $this->authorize("isAdmin");
-
+        $categories = Categorie::all();
         $imageAll = Image::all();
         $imageTout = Image::orderBy("created_at","desc")->paginate(2);
-        return view("admin.images.index", compact("imageAll","imageTout"));
+        return view("admin.images.index", compact("imageAll","imageTout","categories"));
     }
 
     public function create()
     {
+        // dd("test");
+        $categories = Categorie::all();
 
+        return view("admin.images.create",compact("categories"));
     }
 
     public function store(Request $request)
@@ -31,15 +35,15 @@ class ImageController extends Controller
         $image = new Image();
         $image->nom = $request->nom;
         $image->categorie_id = $request->categorie_id;
-        if ($request->src) {
-            $request->file('src')->storePublicly('img/','public');
-            $image->src = $request->file('src')->hashName();
+        if ($request->url) {
+            $request->file('url')->storePublicly('img/','public');
+            $image->url = $request->file('url')->hashName();
         }else{
             $fichierURL = file_get_contents($request->srcURL);
             $lien = $request->srcURL;
             $token = substr($lien, strrpos($lien, '/') + 1);
             Storage::disk('public')->put('img/'.$token , $fichierURL);
-            $image->src = $token;
+            $image->url = $token;
         }
 
         $image->save();

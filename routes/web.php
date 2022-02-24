@@ -96,13 +96,13 @@ route::post("/admin/avatarsurl/store",[AvatarController::class,"storeUrl"])->nam
 Route::middleware(['auth','isAdmin'])->group(function () {
 
 // create
-route::get("/admin/images/create",[ImageController::class,"create"])->name("images.create");
+route::get("/admin/images/createImages",[ImageController::class,"create"])->name("images.create");
 // store
 route::post("/admin/images/store",[ImageController::class,"store"])->name("images.store");
 // affiche
 route::get("/admin/images/index",[ImageController::class,"index"])->name("images.index");
 // del
-Route::delete('/images/{id}/deleteimages', [ImageController::class,"destroy"])->name("images.destroy");
+Route::delete('admin/images/{image}/deleteimages', [ImageController::class,"destroy"])->name("images.destroy");
 // show
 route::get("/admin/{images}/showindex",[ImageController::class,"show"])->name("images.show");
 // edit
