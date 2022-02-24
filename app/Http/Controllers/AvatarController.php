@@ -59,7 +59,7 @@ class AvatarController extends Controller
 
             $file->save();
 
-            return redirect()->back();
+            return redirect()->route("avatars.index");
 
 
     }

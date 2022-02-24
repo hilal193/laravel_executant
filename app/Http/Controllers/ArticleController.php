@@ -60,7 +60,7 @@ class ArticleController extends Controller
         }
 
         $article->save();
-        return redirect()->back()->with('success', 'Article bien modifié !');
+        return redirect()->route("articles.index")->with('success', 'Article bien modifié !');
     }
 
     /**
