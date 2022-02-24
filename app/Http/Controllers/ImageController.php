@@ -68,6 +68,11 @@ class ImageController extends Controller
     public function destroy(Image $image)
     {
         // $this->authorize("isAdmin");
+
+        // Storage
+        $destination = "img/". $image->url;
+        Storage::disk("public")->delete($destination);
+        // dd($destination);
         $image->delete();
         return redirect()->route('images.index')->with('warning', 'Image bien supprimé');
     }
